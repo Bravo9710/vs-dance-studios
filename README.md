@@ -28,9 +28,12 @@ npm run dev      # http://localhost:3000
 
 ### Production build
 
+Статичен export — `npm run build` генерира готова за деплой папка `out/`,
+без Node сървър по време на изпълнение.
+
 ```bash
 npm run build
-npm start
+npx serve out      # локален preview на статичния export
 ```
 
 ### Тестове
