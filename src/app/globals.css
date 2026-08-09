@@ -1,0 +1,52 @@
+@import "./tokens.css";
+@import "tailwindcss";
+
+@theme inline {
+  --color-ink: var(--vs-ink);
+  --color-ink-muted: var(--vs-ink-muted);
+  --color-paper: var(--vs-paper);
+  --color-red: var(--vs-red);
+  --color-red-hover: var(--vs-red-hover);
+  --color-red-active: var(--vs-red-active);
+  --color-red-tint: var(--vs-red-tint);
+  --color-yellow: var(--vs-yellow);
+
+  --font-display: var(--font-oswald);
+  --font-body: var(--font-pt-sans);
+
+  --text-display: var(--vs-text-display);
+  --text-display--line-height: var(--vs-leading-display);
+  --text-display--letter-spacing: var(--vs-tracking-display);
+
+  --spacing-section: var(--vs-space-section);
+}
+
+@layer base {
+  /*
+   * Tailwind's Preflight (loaded by the import above) resets box-sizing,
+   * margins and form elements. It doesn't set a focus treatment or handle
+   * reduced motion, so that's the only thing added here.
+   *
+   * A double ring (white outline + dark shadow), not a single brand-color
+   * ring: yellow-on-paper fails contrast outright (~1.5:1) and a same-red
+   * ring on a same-red button would collapse toward 1:1. This guarantees
+   * at least one ring hits >=3:1 against any surface in this token set.
+   */
+  :focus-visible {
+    outline: 2px solid var(--color-paper);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px var(--color-ink);
+    border-radius: inherit;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}

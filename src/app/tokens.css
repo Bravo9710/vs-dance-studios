@@ -1,0 +1,38 @@
+/*
+ * Design tokens for VS DANCE StudioS.
+ *
+ * Color anchors (ink, paper, red, yellow) are the client's own measured
+ * brand identity, not invented — see PRODUCT.md / DESIGN.md. Every step
+ * derived from them (hover/active/tint) was checked against WCAG 2.1
+ * contrast requirements before being committed here; see the ratios noted
+ * inline. Ink and the muted text variant carry a whisper of the brand's
+ * own red hue rather than being pure neutral gray, per a Committed color
+ * strategy — never toward warm/cream by default.
+ */
+
+:root {
+  /* Colors */
+  --vs-ink: #161011; /* near-black, warm-tinted toward brand red hue */
+  --vs-ink-muted: #635a5c; /* secondary text — 6.67:1 on paper */
+  --vs-paper: #ffffff;
+  --vs-red: #cc3333; /* fixed brand anchor — current live-site button red */
+  --vs-red-hover: #a82a2a; /* 6.93:1 on paper as text; darker button hover fill */
+  --vs-red-active: #7a1f1f; /* 10.28:1 on paper as text; pressed state */
+  --vs-red-tint: #f7dcdc; /* light background tint, e.g. accented card */
+  --vs-yellow: #ffcc00; /* fixed brand anchor — logo frame. Non-text accent ONLY:
+    the client's own site pairs this with #666 text at 3.79:1, a measured WCAG
+    failure. No token here may reproduce a text-on-yellow pairing below 4.5:1. */
+
+  /* Fluid display heading. Ratio and ceiling follow Impeccable's brand-mode
+     typography rules: modular clamp(), max <=6rem, letter-spacing floor >=-0.04em.
+     Everything below h1 uses Tailwind's own built-in type scale (already >=1.25
+     ratio) rather than a hand-rolled parallel system. */
+  --vs-text-display: clamp(2.5rem, 1.6rem + 4vw, 4.5rem);
+  --vs-leading-display: 1.05;
+  --vs-tracking-display: -0.02em;
+
+  /* Spacing. Tailwind's default 0.25rem base spacing scale is reused as-is;
+     the one addition is a fluid section rhythm, per brand-mode layout guidance
+     ("fluid spacing with clamp() that breathes on larger viewports"). */
+  --vs-space-section: clamp(3rem, 5vw + 1rem, 6rem);
+}
