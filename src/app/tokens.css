@@ -2,7 +2,7 @@
  * Design tokens for VS DANCE StudioS.
  *
  * Color anchors (ink, paper, red, yellow) are the client's own measured
- * brand identity, not invented — see PRODUCT.md / DESIGN.md. Every step
+ * brand identity, not invented. Every step
  * derived from them (hover/active/tint) was checked against WCAG 2.1
  * contrast requirements before being committed here; see the ratios noted
  * inline. Ink and the muted text variant carry a whisper of the brand's
