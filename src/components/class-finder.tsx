@@ -64,7 +64,7 @@ export function ClassFinder() {
         <LocationFilter scopeId={CARDS_SCOPE_ID} />
         <a
           href="https://vs.dance/tantsovi-klasove/#graf"
-          className="font-body text-base font-bold text-red underline-offset-4 hover:underline"
+          className="inline-flex min-h-11 items-center py-3 font-body text-base font-bold text-red underline-offset-4 hover:underline"
         >
           Виж целия график →
         </a>
