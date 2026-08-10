@@ -1,6 +1,6 @@
 import { ResponsivePicture } from "@/components/responsive-picture";
 import { LocationFilter } from "@/components/location-filter";
-import { CLASS_CARDS } from "@/lib/classes";
+import { CLASS_CARDS, cardLocationLabel } from "@/lib/classes";
 import { ctaClickDataAttr } from "@/lib/analytics";
 
 const CARDS_SCOPE_ID = "class-finder-cards";
@@ -16,48 +16,54 @@ export function ClassFinder() {
       </p>
 
       <ul id={CARDS_SCOPE_ID} className="mt-10 grid gap-6 md:grid-cols-3">
-        {CLASS_CARDS.map((card) => (
-          <li key={card.ageLabel}>
-            <a
-              href={card.href}
-              data-cta-event={ctaClickDataAttr({
-                cta_id: `class_finder_${card.id}`,
-                cta_text: card.ageLabel,
-                cta_location: "class_finder",
-                cta_destination: card.href,
-              })}
-              className={`flex h-full flex-col gap-4 rounded-lg p-6 transition-colors ${
-                card.accented
-                  ? "border-2 border-red bg-red-tint"
-                  : "border border-ink-muted bg-paper hover:border-red"
-              }`}
-            >
-              <ResponsivePicture
-                name={card.imageName}
-                alt=""
-                width={800}
-                height={533}
-                sizes="(min-width: 1024px) 33vw, 100vw"
-                className="aspect-[3/2] w-full rounded object-cover"
-              />
-              <h3 className="font-display text-2xl text-ink">{card.ageLabel}</h3>
-              <ul className="flex flex-wrap gap-2">
-                {card.styles.map((style) => (
-                  <li
-                    key={style}
-                    data-locations="vitosha buxton"
-                    className="rounded-full border border-ink px-3 py-1 font-body text-base text-ink"
-                  >
-                    {style}
-                  </li>
-                ))}
-              </ul>
-              <p className="mt-auto font-body text-base text-ink-muted">
-                Витоша 91 · Бъкстон
-              </p>
-            </a>
-          </li>
-        ))}
+        {CLASS_CARDS.map((card) => {
+          const allLabel = cardLocationLabel(card);
+          return (
+            <li key={card.ageLabel} data-card data-all-label={allLabel}>
+              <a
+                href={card.href}
+                data-cta-event={ctaClickDataAttr({
+                  cta_id: `class_finder_${card.id}`,
+                  cta_text: card.ageLabel,
+                  cta_location: "class_finder",
+                  cta_destination: card.href,
+                })}
+                className={`flex h-full flex-col gap-4 rounded-lg p-6 transition-colors ${
+                  card.accented
+                    ? "border-2 border-red bg-red-tint"
+                    : "border border-ink-muted bg-paper hover:border-red"
+                }`}
+              >
+                <ResponsivePicture
+                  name={card.imageName}
+                  alt=""
+                  width={800}
+                  height={533}
+                  sizes="(min-width: 1024px) 33vw, 100vw"
+                  className="aspect-[3/2] w-full rounded object-cover"
+                />
+                <h3 className="font-display text-2xl text-ink">{card.ageLabel}</h3>
+                <ul className="flex flex-wrap gap-2">
+                  {card.styles.map((style) => (
+                    <li
+                      key={style.name}
+                      data-locations={style.locations.join(" ")}
+                      className="rounded-full border border-ink px-3 py-1 font-body text-base text-ink"
+                    >
+                      {style.name}
+                    </li>
+                  ))}
+                </ul>
+                <p data-card-footer className="mt-auto font-body text-base text-ink-muted">
+                  {allLabel}
+                </p>
+                <p data-empty-state hidden className="mt-auto font-body text-base text-ink-muted">
+                  Няма класове на тази локация
+                </p>
+              </a>
+            </li>
+          );
+        })}
       </ul>
 
       <div className="mt-8 flex flex-wrap items-center justify-between gap-6">

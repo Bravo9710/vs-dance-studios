@@ -21,6 +21,9 @@ test("all three cards and every link render and work without JavaScript", async 
     await expect(chip).toBeVisible();
   }
 
+  // including styles that only exist at one studio (data-locations="buxton")
+  await expect(page.getByText("Break dance")).toBeVisible();
+
   // the filter's own controls still render, even though they're inert
   await expect(page.getByRole("radio")).toHaveCount(3);
 });
