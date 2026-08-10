@@ -1,9 +1,19 @@
+import { ResponsivePicture } from "@/components/responsive-picture";
+
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-start justify-center gap-6 px-6 py-section">
       <p className="font-body text-sm text-ink-muted">
         Scaffold placeholder — Hero and class-finder content land in later phases.
       </p>
+      <ResponsivePicture
+        name="hero"
+        alt=""
+        width={2048}
+        height={1365}
+        className="w-full max-w-2xl rounded"
+        sizes="(min-width: 768px) 50vw, 100vw"
+      />
       <h1 className="font-display text-display text-ink">
         Танцово студио VS DANCE StudioS
       </h1>
