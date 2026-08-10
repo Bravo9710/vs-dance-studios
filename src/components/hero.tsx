@@ -1,4 +1,4 @@
-import { ResponsivePicture } from "@/components/responsive-picture";
+import { ResponsivePicture } from "@/components/ResponsivePicture";
 import { ctaClickDataAttr } from "@/lib/analytics";
 
 const primaryCtaEvent = ctaClickDataAttr({
@@ -13,7 +13,7 @@ export function Hero() {
     <header className="grid gap-10 px-6 py-section md:grid-cols-2 md:items-center md:gap-12 lg:px-12">
       <div className="flex flex-col items-start gap-6">
         <p className="font-body text-base font-bold text-red">
-          Танцово студио VS DANCE StudioS · от 2009 г.
+          Танцово студио VS DANCE StudioS.
         </p>
 
         <h1 className="font-display text-display text-ink">
@@ -57,7 +57,7 @@ export function Hero() {
 
       <ResponsivePicture
         name="hero"
-        alt="Ученици на VS DANCE StudioS си дават висока пета в кръг след тренировка"
+        alt="Ученици на VS DANCE StudioS в кръг след тренировка"
         width={2048}
         height={1365}
         priority

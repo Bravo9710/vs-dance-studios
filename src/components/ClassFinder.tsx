@@ -1,5 +1,5 @@
-import { ResponsivePicture } from "@/components/responsive-picture";
-import { LocationFilter } from "@/components/location-filter";
+import { ResponsivePicture } from "@/components/ResponsivePicture";
+import { LocationFilter } from "@/components/LocationFilter";
 import { CLASS_CARDS, cardLocationLabel } from "@/lib/classes";
 import { ctaClickDataAttr } from "@/lib/analytics";
 
@@ -11,9 +11,6 @@ export function ClassFinder() {
       <h2 id="class-finder-heading" className="font-display text-4xl text-ink">
         Открий подходящата тренировка
       </h2>
-      <p className="mt-3 max-w-prose font-body text-base text-ink-muted">
-        Започни от възрастта, после стеснѝ по стил и локация.
-      </p>
 
       <ul id={CARDS_SCOPE_ID} className="mt-10 grid gap-6 md:grid-cols-3">
         {CLASS_CARDS.map((card) => {
@@ -36,6 +33,8 @@ export function ClassFinder() {
               >
                 <ResponsivePicture
                   name={card.imageName}
+                  // Decorative: the h3 below already names the age group, and the
+                  // style chips + footer cover what the photo would otherwise convey.
                   alt=""
                   width={800}
                   height={533}

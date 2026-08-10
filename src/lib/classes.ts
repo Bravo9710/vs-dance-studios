@@ -19,7 +19,6 @@ export type ClassCard = {
   styles: StyleEntry[];
   href: string;
   imageName: string;
-  alt: string;
   accented?: boolean;
 };
 
@@ -48,7 +47,6 @@ export const CLASS_CARDS: ClassCard[] = [
     ],
     href: "https://vs.dance/tantsovi-klasove/#class",
     imageName: "card-kids",
-    alt: "Деца тренират хип-хоп в студио на VS DANCE StudioS",
   },
   {
     id: "youth",
@@ -63,7 +61,6 @@ export const CLASS_CARDS: ClassCard[] = [
     ],
     href: "https://vs.dance/programi-za-razvitie/",
     imageName: "card-youth",
-    alt: "Тийнейджър танцува пред развълнувана публика от връстници",
     accented: true,
   },
   {
@@ -79,6 +76,5 @@ export const CLASS_CARDS: ClassCard[] = [
     ],
     href: "https://vs.dance/tantsovi-klasove/#graf",
     imageName: "card-adults",
-    alt: "Възрастни танцьорки тренират хореография на високи токчета",
   },
 ];
