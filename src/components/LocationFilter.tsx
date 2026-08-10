@@ -74,7 +74,7 @@ export function LocationFilter({ scopeId }: { scopeId: string }) {
             tabIndex={selected === option.id ? 0 : -1}
             onClick={() => select(option.id)}
             onKeyDown={(event) => handleKeyDown(event, index)}
-            className="min-h-11 rounded-md border border-ink px-5 py-2 font-body text-base font-bold text-ink transition-colors aria-checked:bg-ink aria-checked:text-paper"
+            className="shine min-h-11 rounded-md border border-ink px-5 py-2 font-body text-base font-bold text-ink hover:border-red hover:bg-red-tint hover:text-red-hover aria-checked:bg-ink aria-checked:text-paper aria-checked:hover:border-ink aria-checked:hover:bg-ink aria-checked:hover:text-paper"
           >
             {option.label}
           </button>

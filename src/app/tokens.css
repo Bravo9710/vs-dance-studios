@@ -18,7 +18,7 @@
   --vs-red: #cc3333; /* fixed brand anchor — current live-site button red */
   --vs-red-hover: #a82a2a; /* 6.93:1 on paper as text; darker button hover fill */
   --vs-red-active: #7a1f1f; /* 10.28:1 on paper as text; pressed state */
-  --vs-red-tint: #f7dcdc; /* light background tint, e.g. accented card */
+  --vs-red-tint: #f7dcdc; /* light background tint — hover fill for outline buttons */
   --vs-yellow: #ffcc00; /* fixed brand anchor — logo frame. Non-text accent ONLY:
     the client's own site pairs this with #666 text at 3.79:1, a measured WCAG
     failure. No token here may reproduce a text-on-yellow pairing below 4.5:1. */

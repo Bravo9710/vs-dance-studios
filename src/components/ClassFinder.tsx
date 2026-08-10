@@ -16,7 +16,12 @@ export function ClassFinder() {
         {CLASS_CARDS.map((card) => {
           const allLabel = cardLocationLabel(card);
           return (
-            <li key={card.ageLabel} data-card data-all-label={allLabel}>
+            <li
+              key={card.ageLabel}
+              data-card
+              data-all-label={allLabel}
+              className="elevated elevated-interactive h-full rounded-lg"
+            >
               <a
                 href={card.href}
                 data-cta-event={ctaClickDataAttr({
@@ -25,23 +30,25 @@ export function ClassFinder() {
                   cta_location: "class_finder",
                   cta_destination: card.href,
                 })}
-                className={`flex h-full flex-col gap-4 rounded-lg p-6 transition-colors ${
-                  card.accented
-                    ? "border-2 border-red bg-red-tint"
-                    : "border border-ink-muted bg-paper hover:border-red"
-                }`}
+                className="group flex h-full flex-col gap-4 rounded-lg border border-ink-muted bg-paper p-6 transition-colors duration-500 hover:border-red"
               >
-                <ResponsivePicture
-                  name={card.imageName}
-                  // Decorative: the h3 below already names the age group, and the
-                  // style chips + footer cover what the photo would otherwise convey.
-                  alt=""
-                  width={800}
-                  height={533}
-                  sizes="(min-width: 1024px) 33vw, 100vw"
-                  className="aspect-[3/2] w-full rounded object-cover"
-                />
-                <h3 className="font-display text-2xl text-ink">{card.ageLabel}</h3>
+                <div className="brand-frame [--frame-inset:-0.75rem] [--frame-size:1.5rem]">
+                  <div className="overflow-hidden rounded">
+                    <ResponsivePicture
+                      name={card.imageName}
+                      // Decorative: the h3 below already names the age group, and the
+                      // style chips + footer cover what the photo would otherwise convey.
+                      alt=""
+                      width={800}
+                      height={533}
+                      sizes="(min-width: 1024px) 33vw, 100vw"
+                      className="aspect-[3/2] w-full object-cover transition-transform duration-500 motion-safe:group-hover:scale-105"
+                    />
+                  </div>
+                </div>
+                <h3 className="font-display text-2xl text-ink transition-colors duration-500 group-hover:text-red">
+                  {card.ageLabel}
+                </h3>
                 <ul className="flex flex-wrap gap-2">
                   {card.styles.map((style) => (
                     <li
@@ -69,9 +76,15 @@ export function ClassFinder() {
         <LocationFilter scopeId={CARDS_SCOPE_ID} />
         <a
           href="https://vs.dance/tantsovi-klasove/#graf"
-          className="inline-flex min-h-11 items-center py-3 font-body text-base font-bold text-red underline-offset-4 hover:underline"
+          className="group inline-flex min-h-11 items-center gap-2 py-3 font-body text-base font-bold text-red underline-offset-4 hover:underline"
         >
-          Виж целия график →
+          Виж целия график
+          <span
+            aria-hidden="true"
+            className="inline-block transition-transform duration-500 motion-safe:group-hover:translate-x-1"
+          >
+            →
+          </span>
         </a>
       </div>
     </section>

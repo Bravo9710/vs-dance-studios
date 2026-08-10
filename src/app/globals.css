@@ -50,3 +50,99 @@
     }
   }
 }
+
+@layer components {
+  .brand-frame {
+    --frame-size: 1.25rem;
+    --frame-inset: 0px;
+    position: relative;
+  }
+
+  .brand-frame::before,
+  .brand-frame::after {
+    content: "";
+    position: absolute;
+    width: var(--frame-size);
+    height: var(--frame-size);
+    border: 2px solid var(--color-yellow);
+    pointer-events: none;
+    transition:
+      width 500ms ease,
+      height 500ms ease;
+  }
+
+  .brand-frame::before {
+    top: var(--frame-inset);
+    left: var(--frame-inset);
+    border-right-width: 0;
+    border-bottom-width: 0;
+  }
+
+  .brand-frame::after {
+    right: var(--frame-inset);
+    bottom: var(--frame-inset);
+    border-left-width: 0;
+    border-top-width: 0;
+  }
+
+  .brand-frame:is(:hover, :focus-visible),
+  .group:is(:hover, :focus-visible) .brand-frame {
+    --frame-size: 2rem;
+  }
+
+  @keyframes brand-shine {
+    from {
+      transform: translateX(-120%) skewX(-20deg);
+    }
+    to {
+      transform: translateX(220%) skewX(-20deg);
+    }
+  }
+
+  .shine {
+    position: relative;
+    overflow: hidden;
+    transition:
+      filter 500ms ease,
+      background-color 500ms ease,
+      color 500ms ease,
+      border-color 500ms ease;
+  }
+
+  .shine::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      120deg,
+      transparent 30%,
+      rgb(255 255 255 / 0.6) 50%,
+      transparent 70%
+    );
+    transform: translateX(-120%) skewX(-20deg);
+    pointer-events: none;
+  }
+
+  .shine:is(:hover, :focus-visible) {
+    filter: drop-shadow(0 5px 6px rgb(22 16 17 / 0.3));
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .shine:is(:hover, :focus-visible)::before {
+      animation: brand-shine 500ms ease 1;
+    }
+  }
+
+  .elevated {
+    box-shadow:
+      0 2px 4px rgb(22 16 17 / 0.1),
+      0 10px 24px -6px rgb(22 16 17 / 0.22);
+    transition: box-shadow 500ms ease;
+  }
+
+  .elevated-interactive:is(:hover, :has(:focus-visible)) {
+    box-shadow:
+      0 4px 8px rgb(22 16 17 / 0.14),
+      0 20px 40px -10px rgb(22 16 17 / 0.3);
+  }
+}

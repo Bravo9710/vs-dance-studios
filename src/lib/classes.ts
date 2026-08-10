@@ -19,7 +19,6 @@ export type ClassCard = {
   styles: StyleEntry[];
   href: string;
   imageName: string;
-  accented?: boolean;
 };
 
 export function cardLocationLabel(card: ClassCard): string {
@@ -61,7 +60,6 @@ export const CLASS_CARDS: ClassCard[] = [
     ],
     href: "https://vs.dance/programi-za-razvitie/",
     imageName: "card-youth",
-    accented: true,
   },
   {
     id: "adults",

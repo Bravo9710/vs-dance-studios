@@ -17,7 +17,8 @@ export function Hero() {
         </p>
 
         <h1 className="font-display text-display text-ink">
-          Танцово студио в София за деца, младежи и възрастни
+          Танцово студио в София за{" "}
+          <span className="text-red">деца, младежи и възрастни</span>
         </h1>
 
         <p className="hidden max-w-prose font-body text-base text-ink md:block">
@@ -34,13 +35,13 @@ export function Hero() {
           <a
             href="https://vs.dance/tantsovi-klasove/"
             data-cta-event={primaryCtaEvent}
-            className="rounded-md bg-red px-8 py-4 font-body text-base font-bold text-paper transition-colors hover:bg-red-hover"
+            className="shine rounded-md bg-red px-8 py-4 font-body text-base font-bold text-paper hover:bg-red-hover"
           >
             Вземи 3 безплатни класа
           </a>
           <a
             href="https://vs.dance/tantsovi-klasove/#graf"
-            className="rounded-md border border-ink px-8 py-4 font-body text-base font-bold text-ink transition-colors hover:bg-red-tint"
+            className="shine rounded-md border border-ink px-8 py-4 font-body text-base font-bold text-ink hover:bg-ink hover:text-paper"
           >
             Виж графика
           </a>
@@ -55,15 +56,17 @@ export function Hero() {
         </p>
       </div>
 
-      <ResponsivePicture
-        name="hero"
-        alt="Ученици на VS DANCE StudioS в кръг след тренировка"
-        width={2048}
-        height={1365}
-        priority
-        sizes="(min-width: 768px) 50vw, 100vw"
-        className="w-full rounded-lg object-cover"
-      />
+      <div className="brand-frame elevated rounded-lg [--frame-inset:-1rem] [--frame-size:2.5rem]">
+        <ResponsivePicture
+          name="hero"
+          alt="Ученици на VS DANCE StudioS в кръг след тренировка"
+          width={2048}
+          height={1365}
+          priority
+          sizes="(min-width: 768px) 50vw, 100vw"
+          className="w-full rounded-lg object-cover"
+        />
+      </div>
     </header>
   );
 }
