@@ -27,7 +27,9 @@ export function ResponsivePicture({
   className,
   priority,
 }: ResponsivePictureProps) {
-  const common = { alt, width, height, sizes, priority };
+  // priority alone doesn't imply fetchPriority in next/image's getImageProps
+  // — the two are independent props, so pair them explicitly here.
+  const common = { alt, width, height, sizes, priority, fetchPriority: priority ? ("high" as const) : undefined };
   const {
     props: { srcSet: avifSrcSet },
   } = getImageProps({ ...common, src: `/images/${name}.avif` });
