@@ -64,7 +64,6 @@ npm run test:report               # отваря HTML отчета
 | Снимки и текстове         | vs.dance — оригиналният сайт на клиента                   | използвани по условие на задачата                                 |
 | Шрифт — Oswald (headline) | [Google Fonts](https://fonts.google.com/specimen/Oswald)  | SIL OFL 1.1, потвърдена поддръжка на кирилица                     |
 | Шрифт — PT Sans (body)    | [Google Fonts](https://fonts.google.com/specimen/PT+Sans) | SIL OFL 1.1, изграден двуезично (латиница + кирилица) от ParaType |
-| Икони                     | _(попълва се при интегрирането)_                          | само MIT / CC0                                                    |
 
 Не са използвани снимки на танцьори или други лица от външни източници.
 
