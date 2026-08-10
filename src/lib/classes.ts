@@ -6,6 +6,7 @@ export const LOCATIONS: { id: LocationId; label: string }[] = [
 ];
 
 export type ClassCard = {
+  id: string;
   ageLabel: string;
   styles: string[];
   href: string;
@@ -21,6 +22,7 @@ export type ClassCard = {
 // per-style/location split is confirmed by the client.
 export const CLASS_CARDS: ClassCard[] = [
   {
+    id: "kids",
     ageLabel: "Деца · 7–12 г.",
     styles: ["Hip-hop kids", "Break dance", "Show dance"],
     href: "https://vs.dance/tantsovi-klasove/#class",
@@ -28,6 +30,7 @@ export const CLASS_CARDS: ClassCard[] = [
     alt: "Деца тренират хип-хоп в студио на VS DANCE StudioS",
   },
   {
+    id: "youth",
     ageLabel: "Младежи",
     styles: ["Hip-hop", "Choreography & technique", "VS Youth"],
     href: "https://vs.dance/programi-za-razvitie/",
@@ -36,6 +39,7 @@ export const CLASS_CARDS: ClassCard[] = [
     accented: true,
   },
   {
+    id: "adults",
     ageLabel: "Възрастни",
     styles: ["Beginner hip-hop", "Popping", "Ladies style"],
     href: "https://vs.dance/tantsovi-klasove/#graf",

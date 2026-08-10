@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import { ctaClickDelegationScript } from "@/lib/analytics";
 
 const oswald = localFont({
   src: "../fonts/oswald/Oswald-Variable.woff2",
@@ -30,6 +31,22 @@ export default function RootLayout({
   return (
     <html lang="bg" className={`${oswald.variable} ${ptSans.variable}`}>
       <body className="bg-paper font-body text-ink antialiased">
+        {/*
+          Google Tag Manager — the client already runs container
+          GTM-MP9FZ7KJ on the live site. Uncomment when this section ships
+          to production; no other infrastructure change is needed, since
+          dataLayer.push calls below already use the same event shape GTM
+          would consume.
+
+          <script dangerouslySetInnerHTML={{ __html: `
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;
+            j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-MP9FZ7KJ');
+          `}} />
+        */}
+        <script dangerouslySetInnerHTML={{ __html: ctaClickDelegationScript }} />
         {children}
       </body>
     </html>

@@ -1,6 +1,7 @@
 import { ResponsivePicture } from "@/components/responsive-picture";
 import { LocationFilter } from "@/components/location-filter";
 import { CLASS_CARDS } from "@/lib/classes";
+import { ctaClickDataAttr } from "@/lib/analytics";
 
 const CARDS_SCOPE_ID = "class-finder-cards";
 
@@ -19,6 +20,12 @@ export function ClassFinder() {
           <li key={card.ageLabel}>
             <a
               href={card.href}
+              data-cta-event={ctaClickDataAttr({
+                cta_id: `class_finder_${card.id}`,
+                cta_text: card.ageLabel,
+                cta_location: "class_finder",
+                cta_destination: card.href,
+              })}
               className={`flex h-full flex-col gap-4 rounded-lg p-6 transition-colors ${
                 card.accented
                   ? "border-2 border-red bg-red-tint"

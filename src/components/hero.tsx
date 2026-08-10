@@ -1,4 +1,12 @@
 import { ResponsivePicture } from "@/components/responsive-picture";
+import { ctaClickDataAttr } from "@/lib/analytics";
+
+const primaryCtaEvent = ctaClickDataAttr({
+  cta_id: "hero_primary",
+  cta_text: "Вземи 3 безплатни класа",
+  cta_location: "hero",
+  cta_destination: "https://vs.dance/tantsovi-klasove/",
+});
 
 export function Hero() {
   return (
@@ -25,6 +33,7 @@ export function Hero() {
         <div className="flex flex-wrap items-center gap-4">
           <a
             href="https://vs.dance/tantsovi-klasove/"
+            data-cta-event={primaryCtaEvent}
             className="rounded-md bg-red px-8 py-4 font-body text-base font-bold text-paper transition-colors hover:bg-red-hover"
           >
             Вземи 3 безплатни класа
